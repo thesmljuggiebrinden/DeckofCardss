@@ -16,12 +16,12 @@ def step_impl(context):
     assert context.new_deck.deck_of_cards.__len__() == 52
 
 
-@Then('the card value should be recorded')
+@Then('the number of cards should be recorded')
 def step_impl(context):
     assert context.card_holder.count == context.num_of_cards
 
 
-@Given('I have a set number of cards')
+@Given('I have a set of cards')
 def step_impl(context):
     context.card_deck = deckofcards.Deck
     assert context.card_deck is not None
@@ -34,7 +34,7 @@ def step_impl(context):
     assert context.drawn_card is not None
 
 
-@Then('it is removed from the deck')
+@Then('It is removed from the deck')
 def step_impl(context):
     assert context.new_deck.deck_of_cards.__len__() < context.num_of_cards
     assert context.drawn_card not in context.new_deck.deck_of_cards
